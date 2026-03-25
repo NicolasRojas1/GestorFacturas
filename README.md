@@ -29,7 +29,7 @@ Al ejecutar la aplicación, el sistema solicitará de forma secuencial los datos
 ## 💻 Instalación y Uso
 1.  Clona el repositorio:
     ```bash
-    git clone [https://github.com/NicolasRojas1/GestorFacturas.git](https://github.com/NicolasRojas1/GestorFacturas.git)
+    git clone https://github.com/NicolasRojas1/GestorFacturas.git
     ```
 2.  Navega a la carpeta del proyecto:
     ```bash
