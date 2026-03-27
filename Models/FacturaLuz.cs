@@ -51,13 +51,13 @@ class Luz : Factura
     }
 
 
-    public override void ShowInfo()
+    public override string ObtenerReporte()
     {
         var (c1, c2) = CalcularConsumos();
         var (p1, p2) = CalcularPorcentajes();
         var (total1, total2) = MetodoPago();
 
-        WriteLine($@"------ Esta es la informacion de tu recibo de la luz: ------
+        return $@"------ Esta es la informacion de tu recibo de la luz: ------
 Valor Total del Recibo: {ValorRecibo:C}
 
 Lectura Anterior del Contador: {ConsumoInicial}
@@ -69,6 +69,6 @@ Apto 1 Consumo: {c1} kw | Porcentaje: {p1:F2}%
 Apto 2 Consumo: {c2} kw | Porcentaje: {p2:F2}%
 
 Apto 1 Pago: {total1:C0}
-Apto 2 Pago: {total2:C0}");
+Apto 2 Pago: {total2:C0}";
     }
 }

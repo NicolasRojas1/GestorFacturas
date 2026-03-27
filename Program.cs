@@ -6,6 +6,6 @@ using GestorFacturas.Services;
 var gestor = new GestorFacturasService();
 
 //gestor.EjecutarRegistroAgua();
-//gestor.EjecutarRegistroLuz();
-gestor.EjecutarRegistroGas();
+gestor.EjecutarRegistroLuz();
+//gestor.EjecutarRegistroGas();
 

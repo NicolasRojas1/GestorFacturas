@@ -26,7 +26,21 @@ public class GestorFacturasService
 
     public void EjecutarRegistroLuz()
     {
-        Luz reciboLuz = new(101040, 11387, 11543, new DateTime(2026, 07, 01), new DateTime(2026, 07, 02), 7244, 7359, 740.25);
+        //Luz reciboLuz = new(101040, 11387, 11543, new DateTime(2026, 07, 01), new DateTime(2026, 07, 02), 7244, 7359, 740.25);
+        double valor = LeerDouble("Valor total del recibo: ");
+        int ini = LeerEntero("Ingrese la lectura inicial del recibo: ");
+        int fin = LeerEntero("Ingrese la lectura final del recibo: ");
+        DateTime fechaInicial = new(2026, 01, 07);
+        DateTime fechaFinal = new(2026, 02, 07);
+        int consumoIni = LeerEntero("Consumo inicial del contador: ");
+        int consumoFin = LeerEntero("Consumo final del contador: ");
+        double valKw = LeerDouble("Ingrese el valor unitario del Kw: ");
+
+        //Creacion
+        Luz reciboLuz = new(valor, ini, fin, fechaInicial, fechaFinal, consumoIni, consumoFin, valKw);
+
+        //Lamado
+        WriteLine("\n--- PROCESANDO CÁLCULOS ---");
         reciboLuz.ShowInfo();
     }
 
