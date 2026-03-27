@@ -53,13 +53,13 @@ class Gas : Factura
             return (Math.Round(valorApto1, 0), Math.Round(valorApto2, 0));
         }
     }
-    public override void ShowInfo()
+    public override string ObtenerReporte()
     {
         var (c1, c2) = CalcularConsumos();
         var (p1, p2) = CalcularPorcentajes();
         var (total1, total2) = CalcularPagos();
 
-        WriteLine($@"
+        return $@"
 ==================================================
       🔥 REPORTE DE CONSUMO DE GAS 🔥
 ==================================================
@@ -84,7 +84,7 @@ APTO 2:
    VALOR A PAGAR: {total2:C0}
 --------------------------------------------------
     *Cálculos basados en el consumo real del medidor*
-==================================================");
+==================================================";
     }
 }
 

@@ -1,4 +1,5 @@
 namespace GestorFacturas.Services;
+
 using GestorFacturas.Models;
 
 public class GestorFacturasService
@@ -19,8 +20,8 @@ public class GestorFacturasService
         null              // NULL PARA QUE PIDA LOS DATOS
     );
 
-    // Una vez el constructor termine de pedir los datos por consola...
-    miRecibo.ShowInfo();
+        // Una vez el constructor termine de pedir los datos por consola...
+        miRecibo.ShowInfo();
     }
 
     public void EjecutarRegistroLuz()
@@ -31,7 +32,55 @@ public class GestorFacturasService
 
     public void EjecutarRegistroGas()
     {
-        Gas recibo = new(52660, 1143, 1167, new DateTime(2026, 01, 07), new DateTime(2026, 02, 07), 811, 824, 4186);
+        //Gas recibo = new(52660, 1143, 1167, new DateTime(2026, 01, 07), new DateTime(2026, 02, 07), 811, 824, 4186);
+        double valor = LeerDouble("Valor total del recibo: ");
+        int ini = LeerEntero("Ingrese la lectura inicial del recibo: ");
+        int fin = LeerEntero("Ingrese la lectura final del recibo: ");
+        DateTime fechaInicial = new(2026, 01, 07);
+        DateTime fechaFinal = new(2026, 02, 07);
+        int consumoIni = LeerEntero("Consumo inicial del contador: ");
+        int consumoFin = LeerEntero("Consumo final del contador: ");
+        double cargoFijo = LeerDouble("Ingrese el valor del cargo fijo del recibo: ");
+
+        //Creacion
+        Gas recibo = new(valor, ini, fin, fechaInicial, fechaFinal, consumoIni, consumoFin, cargoFijo);
+
+        //Llamado
+        WriteLine("\n--- PROCESANDO CÁLCULOS ---");
         recibo.ShowInfo();
+    }
+
+    // -------------- Validadores --------------
+    private int LeerEntero(string mensaje)
+    {
+        int resultado;
+        while (true)
+        {
+            Write(mensaje);
+            string? entrada = ReadLine();
+
+            if (int.TryParse(entrada, out resultado))
+            {
+                return resultado; // Salimos del método con el número listo
+            }
+
+            WriteLine("❌ Error: Por favor, ingresa un número entero válido.");
+        }
+    }
+
+    private double LeerDouble(string mensaje)
+    {
+        double resultado;
+        while (true)
+        {
+            Write(mensaje);
+            string? entrada = ReadLine();
+
+            if(double.TryParse(entrada, out resultado))
+            {
+                return resultado;
+            }
+            WriteLine("❌ Error: Debe ser un número (ej: 1500,50)");
+        }
     }
 }

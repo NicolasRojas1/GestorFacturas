@@ -16,5 +16,13 @@ public class Factura
         FechaFinal = fechaFinal;
     }
 
-    public virtual void ShowInfo(){}
+    public virtual string ObtenerReporte()
+    {
+        return $"Factura General - Valor: {ValorRecibo:C0}";
+    }
+
+    public virtual void ShowInfo()
+    {
+        WriteLine(ObtenerReporte());
+    }
 }
